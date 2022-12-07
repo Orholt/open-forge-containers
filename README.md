@@ -1,5 +1,7 @@
 # About
 
+<img src="https://github.com/michalwitek1232/open-forge-containers/blob/master/logo.png?raw=true" width="250px"/>
+
 **Open Forge Containers** is a project that I started due to the need for a self-host Minecraft Forge server that will allow me to play VRCraft 1.18.2 with few mods with my flatmate.
 
 Due to the fact that other images containing Minecraft Forge does not satisfy my needs, I decided to start this small project.
