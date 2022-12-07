@@ -20,8 +20,6 @@ RUN echo eula=true > eula.txt
 COPY server.properties /minecraft/forge/server/
 # configuring
 RUN mkdir mods
-# voluming
-VOLUME ["/minecraft/forge/server"]
 # Setting up memory limits
 ENV serverMemoryLimit=4G
 RUN echo "\n-Xmx${serverMemoryLimit}" > user_jvm_args.txt

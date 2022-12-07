@@ -18,8 +18,6 @@ RUN echo eula=true >eula.txt
 COPY server.properties /minecraft/forge/server/
 # configuring
 RUN mkdir mods
-# voluming
-VOLUME ["/minecraft/forge/server"]
 # downloading VRCraft
 ENV vrCraftUrl="https://mediafilez.forgecdn.net/files/3893/747/VivecraftForgeExtensions-1.18.2-1.3.3.jar"
 ENV vrCraft="VivecraftForgeExtensions-1.18.2-1.3.3.jar"
