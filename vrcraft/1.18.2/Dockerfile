@@ -12,8 +12,6 @@ RUN wget ${forgeInstallerUrl}
 RUN java -jar ${forgeInstaller} --installServer
 # cleanup
 RUN rm ${forgeInstaller}
-# startup
-RUN ls -l
 # accepting EULA
 RUN echo eula=true >eula.txt
 # copying server.properties
@@ -31,5 +29,5 @@ RUN mv ${vrCraft} mods/${vrCraft}
 # Setting up memory limits
 ENV serverMemoryLimit=6G
 RUN echo "\n-Xmx${serverMemoryLimit}" > user_jvm_args.txt
-EXPOSE 25565
+EXPOSE 25565/udp
 CMD ["bash", "./run.sh"]

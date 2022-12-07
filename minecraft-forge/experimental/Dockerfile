@@ -1,19 +1,21 @@
 FROM ubuntu:22.04
 LABEL maintainer="mwitek"
 WORKDIR /minecraft/forge/server
+ENV jdkVersion="openjdk-17-jre"
 RUN apt-get update
-RUN apt-get install -y openjdk-17-jre
+RUN apt-get install -y ${jdkVersion}
 RUN apt-get install -y wget
-ENV forgeInstallerUrl="https://maven.minecraftforge.net/net/minecraftforge/forge/1.18.2-40.1.51/forge-1.18.2-40.1.51-installer.jar"
-ENV forgeInstaller="forge-1.18.2-40.1.51-installer.jar"
+ENV forgeInstallerVersion="1.18.2-40.1.51"
+ARG installerUrl="https://maven.minecraftforge.net/net/minecraftforge/forge/${forgeInstallerVersion}/forge-${forgeInstallerVersion}-installer.jar"
+ARG installerName="forge-${forgeInstallerVersion}-installer.jar"
 # download forge
-RUN wget ${forgeInstallerUrl}
+RUN wget ${installerUrl}
 # run forge server
-RUN java -jar ${forgeInstaller} --installServer
+RUN java -jar ${installerName} --installServer
 # cleanup
-RUN rm ${forgeInstaller}
+RUN rm ${installerName}
 # accepting EULA
-RUN echo eula=true >eula.txt
+RUN echo eula=true > eula.txt
 # copying server.properties
 COPY server.properties /minecraft/forge/server/
 # configuring
