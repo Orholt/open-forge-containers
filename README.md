@@ -32,6 +32,7 @@ Docker volumes retain their content even when the container is stopped, started,
 
 # Repository TODO tasks
 - [x] Create working images for 1.18.2, 1.18.2-vrcraft
+- [ ] Add CI/CD
 - [ ] Add RCON support (port exposing, base configuration)
 - [ ] Add auto-restart feature for server
 - [ ] Add auto-backup feature for server
